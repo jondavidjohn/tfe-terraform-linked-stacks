@@ -14,7 +14,7 @@ data "tfe_organization" "org" {
   name = var.organization_name
 }
 
-data "tfe_oauth_client" "client" {
+data "tfe_oauth_client" "oauth" {
   organization     = var.organization_name
   service_provider = "github"
 }
