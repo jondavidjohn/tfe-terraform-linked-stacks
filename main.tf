@@ -14,16 +14,13 @@ data "tfe_organization" "org" {
   name = var.organization_name
 }
 
-resource "tfe_oauth_client" "oauth" {
+data "tfe_oauth_client" "client" {
   organization     = var.organization_name
-  api_url          = "https://api.github.com"
-  http_url         = "https://github.com"
-  oauth_token      = var.github_oauth_token
   service_provider = "github"
 }
 
 resource "tfe_project" "demo_project" {
-  name             = "Linked Stacks Demo"
+  name             = "linked-stacks-demo"
   organization     = var.organization_name
   description      = "Project for demo linked stacks."
 }
