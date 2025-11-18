@@ -33,7 +33,7 @@ resource "tfe_stack" "network" {
   vcs_repo {
     identifier     = "jondavidjohn/demo-network-upstream"
     branch         = "main"
-    oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
+    oauth_token_id = data.tfe_oauth_client.oauth.oauth_token_id
   }
 }
 
@@ -45,7 +45,7 @@ resource "tfe_stack" "storage" {
   vcs_repo {
     identifier     = "jondavidjohn/demo-storage-upstream"
     branch         = "main"
-    oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
+    oauth_token_id = data.tfe_oauth_client.oauth.oauth_token_id
   }
 }
 
@@ -57,6 +57,6 @@ resource "tfe_stack" "app" {
   vcs_repo {
     identifier     = "jondavidjohn/demo-app-downstream"
     branch         = "main"
-    oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
+    oauth_token_id = data.tfe_oauth_client.oauth.oauth_token_id
   }
 }
